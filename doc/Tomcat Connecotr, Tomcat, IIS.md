@@ -149,9 +149,9 @@
 - isapi_redirect.dll에 대한 접근 권한.
   - isapi_redirect.dll 파일은 IIS에서 로드하는 파일이므로, 이 파일이 포함된 /bin 폴더는 IUSR, IIS-IUSRS 계정의 권한이 필수적이다.
   - 설정 방법:
-    1. bin folder 선택 후 alt + enter> 보안 탭>
-    2. 그룹 또는 사용자 이름의 편집> 추가> 고급>  지금 찾기>
-    3. ANONYMOUS LOGON, IUSR, IIS-IUSRS 추가. (IUSER, IIS-IUSRS는 무조건 권한을 부여하는 것을 권장한다.)>이름 확인> 확인> 적용.
+    1.bin folder 선택 후 alt + enter> 보안 탭>
+    2.그룹 또는 사용자 이름의 편집> 추가> 고급>  지금 찾기>
+    3.ANONYMOUS LOGON, IUSR, IIS-IUSRS 추가. (IUSER, IIS-IUSRS는 무조건 권한을 부여하는 것을 권장한다.)>이름 확인> 확인> 적용.
 
 ### IIS 설정
 
