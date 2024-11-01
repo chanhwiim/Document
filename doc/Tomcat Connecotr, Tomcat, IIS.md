@@ -189,10 +189,10 @@
 ```
 
 - protocol: AJP/1.3을 사용하여 IIS와 Tomcat 간 통신을 설정한다.
-- address: 127.0.0.1로 설정하여 [localhost](http://localhost) 연결을 보장한다. server.xml 파일의 설정은 workers.properties와 일치해야 한다.
-- port: [workers.properties](http://workers.properties) file의 port 값과 동일하게 설정되어야 한다.
+- address: 127.0.0.1로 설정하여 localhost 연결을 보장한다. server.xml 파일의 설정은 workers.properties와 일치해야 한다.
+- port: workers.properties file의 port 값과 동일하게 설정되어야 한다.
 
-### [workers.properties](http://workers.properties) 설정
+### workers.properties 설정
 
 - 역할: 여러 Tomcat worker 설정을 정의하고 AJP를 통해 특정 worker에 요청을 라우팅한다.
 - 설정 예시:
@@ -211,7 +211,7 @@ worker.worker1.lbfactor=1
 - worker.{workerName}.port: server.xml의 AJP 포트와 동일하게 설정한다.
 - worker.{workerName}.lbfactor: 로드 밸런싱을 위한 값. 기본적으로 1로 설정하여 균등 분배를 지정한다.
 
-### [uriworkermap.properties](http://uriworkermap.properties) 설정.
+### uriworkermap.properties 설정.
 
 - 역할: URL 패턴을 정의하고, 특정 요청이 어떤 worker로 전달이 될 지를 지정하여 요청을 세밀하게 라우팅 할 수 있다.
 - 설정 예시:
@@ -285,8 +285,8 @@ worker.worker1.lbfactor=1
   9. IIS나 Tomcat, Tomcat connector 중 변경 사항이 반영되지 않은 경우 발생한다.
 
 - 각 오류 별 해결 방안
-  1. [uriworkermap.properties](http://uriworkermap.properties)의 규칙을 변경하거나, java application Request Mapping을 uriworkermap.properties의 규칙에 맞게 변경. 테스트 용도라면 “/*”을 사용해서 모든 요청을 받는 것도 괜찮다.
-  2. Tomcat server.xml의 AJP 설정 부분과, Tomcat Connector [worker.properties](http://worker.properties)설정 파일을 일치하게 수정. host = address port=port. secretRequired=”false” 추가 만약 주석 처리 (<!—, —>)가 있을 경우, 제거.
+  1. uriworkermap.properties의 규칙을 변경하거나, java application Request Mapping을 uriworkermap.properties의 규칙에 맞게 변경. 테스트 용도라면 “/*”을 사용해서 모든 요청을 받는 것도 괜찮다.
+  2. Tomcat server.xml의 AJP 설정 부분과, Tomcat Connector worker.properties 설정 파일을 일치하게 수정. host = address port=port. secretRequired=”false” 추가 만약 주석 처리 (<!—, —>)가 있을 경우, 제거.
   3. Java application Request Mapping의 규칙에 맞게 요청을 보내는 것을 권장.
   4. 1번과 동일하다.
   5. 2번과 동일하다.
@@ -302,7 +302,7 @@ worker.worker1.lbfactor=1
 
 필자는 Tomcat connector/bin/isapi_redirect.properties 설정 중 log level=debug로 내려서 확인했었다. 실제 서비스에서는 info로 하는 것을 추천하나, 테스트 및 구현 단계에서는 로그 레벨을 내려서 확인하는 것도 좋은 방법이라 생각한다.
 
-[workers.properties](http://workers.properties) 파일의 설정. 특히 host에 관한 설정과, server.xml의 AJP address가 일치하는지 검토하기 바란다.
+workers.properties 파일의 설정. 특히 host에 관한 설정과, server.xml의 AJP address가 일치하는지 검토하기 바란다.
 
 ## **동작 방식**
 
@@ -348,7 +348,7 @@ worker.worker1.lbfactor=1
 
 위의 설정을 바탕으로 동작 방식을 설명한다면 다음과 같이 동작한다.
 
-1. Client가 [http://example.com/app1/resources로](http://example.com/app1/resources로) 접근하면, IIS는 해당 URL을 처리하기 위해 uriworkermap.properties를 참조한다.
+1. Client가 http://example.com/app1/resources로 접근하면, IIS는 해당 URL을 처리하기 위해 uriworkermap.properties를 참조한다.
 2. URL이 /app1/* 패턴과 일치하므로 이 요청은 worker1로 전달된다.
 3. worker1 설정(workers.properties 참조)에 따라 요청이 127.0.0.1의 AJP 포트 8010을 통해 Tomcat으로 전송된다.
   1. 만약 이 때, Tomcat의 server.xml에 위와 같은 설정이 없다면, tomcat connector의 연결에 실패. error가 발생하며, Service Temporarily Unavailable 웹 페이지가 반환된다.
