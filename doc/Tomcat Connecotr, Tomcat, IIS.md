@@ -1,10 +1,8 @@
 # Tomcat-Tomcat connector-IIS
 
----
+
 
 ## 목차
-
----
 
 - **사전 요구 사항 및 환경 설정**
   - Tomcat과 IIS의 버전 정보.
@@ -32,7 +30,7 @@
 
 ## 사전 요구 사항 및 환경 설정
 
----
+
 
 ### Tomcat과 IIS 정보
 
@@ -55,7 +53,7 @@
 
 ## Tomcat connector 설치
 
----
+
 
 ### **설치 파일 준비**
 
@@ -71,17 +69,17 @@
 
          |- isapi_redirect.dll
 
-        └ isapi_redirect.properties
+         └ isapi_redirect.properties
 
 - conf
 
          |- workers.properteis
 
-        └ uriworkermap.properties
+         └ uriworkermap.properties
 
 - log
 
-        └ isapi_redirect.log (동작 시 자동 생성. 만들 필요 X)
+         └ isapi_redirect.log (동작 시 자동 생성. 만들 필요 X)
 
 ### 각 파일의 설명 및 역할
 
@@ -153,8 +151,7 @@
   - 설정 방법:
     1. bin folder 선택 후 alt + enter> 보안 탭>
     2. 그룹 또는 사용자 이름의 편집> 추가> 고급>  지금 찾기>
-    3. ANONYMOUS LOGON, IUSR, IIS-IUSRS 추가. (IUSER, IIS-IUSRS는 무조건 권한을 부여하는 것을 권장한다.)>
-    4. 이름 확인> 확인> 적용.
+    3. ANONYMOUS LOGON, IUSR, IIS-IUSRS 추가. (IUSER, IIS-IUSRS는 무조건 권한을 부여하는 것을 권장한다.)>이름 확인> 확인> 적용.
 
 ### IIS 설정
 
@@ -173,7 +170,6 @@
 
 ## 설정 방법
 
----
 
 ### 설정하는 이유 및 설정의 의미
 
@@ -250,7 +246,6 @@ worker.worker1.lbfactor=1
 
 ## 발생 가능한 오류
 
----
 
 ### 확인 가능한 로그 및 가용 포트 확인 방법
 
@@ -311,7 +306,7 @@ worker.worker1.lbfactor=1
 
 ## **동작 방식**
 
----
+
 
 ### Tomcat-IIS 연동 방식 설명
 
@@ -362,7 +357,7 @@ worker.worker1.lbfactor=1
 
 ## 예외(필요할 경우 계속 추가해 나갈 예정.)
 
----
+
 
 만약 Java 폴더 내의 설정을 변경했을 경우, (나 같은 경우는 java의 security 파일을 수정했었다.)
 Tomcat을 재시작 하거나, Tomcat을 재설치 하는 것을 권장한다.
