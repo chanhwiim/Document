@@ -291,8 +291,8 @@ worker.worker1.lbfactor=1
   4. 1번과 동일하다.
   5. 2번과 동일하다.
   6. 각 설정 파일에 오타가 있는지 확인. 포트 번호, protocol이 일치하는지 재검증하는 것을 추천한다.
-  7. Tomcat의 webapps 폴더, Tomcat connector의 bin/isapi_redirect.dll 파일에 권한을 부여했는지 확인. 만약 없다면, [여기](https://www.notion.so/Tomcat-Tomcat-connector-IIS-130159a7ebd880639c7cf760c8f92e6f?pvs=21)를 눌러 권한 부여 방법 확인 및 적용 권장.
-  8. terminal을 열어서, 포트가 열려 있는 상황인지, Tomcat server.xml에서 설정한 address로 포트가 열려 있는지, 상태가 listening인지 확인.  가용 가능한 포트인지 확인하는 방법은 [여기](https://www.notion.so/Tomcat-Tomcat-connector-IIS-130159a7ebd880639c7cf760c8f92e6f?pvs=21)를 눌러 포트를 확인하는 방법 적용 권장.
+  7. Tomcat의 webapps 폴더, Tomcat connector의 bin/isapi_redirect.dll 파일에 권한을 부여했는지 확인. 만약 없다면, [여기](https://github.com/chanhwiim/Document/blob/main/doc/Tomcat%20Connecotr%2C%20Tomcat%2C%20IIS.md#%ED%8F%B4%EB%8D%94%EC%97%90-%ED%95%84%EC%9A%94%ED%95%9C-%EA%B6%8C%ED%95%9C-%EC%84%A4%EC%A0%95)를 눌러 권한 부여 방법 확인 및 적용 권장.
+  8. terminal을 열어서, 포트가 열려 있는 상황인지, Tomcat server.xml에서 설정한 address로 포트가 열려 있는지, 상태가 listening인지 확인.  가용 가능한 포트인지 확인하는 방법은 [여기](https://github.com/chanhwiim/Document/blob/main/doc/Tomcat%20Connecotr%2C%20Tomcat%2C%20IIS.md#%ED%99%95%EC%9D%B8-%EA%B0%80%EB%8A%A5%ED%95%9C-%EB%A1%9C%EA%B7%B8-%EB%B0%8F-%EA%B0%80%EC%9A%A9-%ED%8F%AC%ED%8A%B8-%ED%99%95%EC%9D%B8-%EB%B0%A9%EB%B2%95)를 눌러 포트를 확인하는 방법 적용 권장.
   9. IIS의 웹 사이트(IIS 전체를 재시작 할 필요 없다.)를 재시작 후, Service에서 Tomcat(Apache Tomcat {Tomcat version} {your Tomcat setting Name})을 재시작. 웹 사이트의 캐시 및 기록을 지우고 다시 시도하는 것을 권장한다. 순서는 관련 없다.
     - 웹 사이트 캐시 삭제 → IIS 재시작 → Tomcat 재시작
 
