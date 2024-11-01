@@ -348,7 +348,7 @@ worker.worker1.lbfactor=1
 
 위의 설정을 바탕으로 동작 방식을 설명한다면 다음과 같이 동작한다.
 
-1. Client가 http://example.com/app1/resources로 접근하면, IIS는 해당 URL을 처리하기 위해 uriworkermap.properties를 참조한다.
+1. Client가 `http://example.com/app1/resources`로 접근하면, IIS는 해당 URL을 처리하기 위해 uriworkermap.properties를 참조한다.
 2. URL이 /app1/* 패턴과 일치하므로 이 요청은 worker1로 전달된다.
 3. worker1 설정(workers.properties 참조)에 따라 요청이 127.0.0.1의 AJP 포트 8010을 통해 Tomcat으로 전송된다.
   1. 만약 이 때, Tomcat의 server.xml에 위와 같은 설정이 없다면, tomcat connector의 연결에 실패. error가 발생하며, Service Temporarily Unavailable 웹 페이지가 반환된다.
