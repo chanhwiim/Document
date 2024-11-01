@@ -16,8 +16,8 @@
 - **설정 방법**
   - 설정하는 이유 및 설정의 의미 설명.
   - server.xml 설정
-  - [workers.properties](http://workers.properties) 설정
-  - [uriworkermap.properties](http://uriworkermap.properties) 설정
+  - workers.properties 설정
+  - uriworkermap.properties 설정
   - pc 자체에서 설정해야 하는 것.
   - 주의사항
 - **발생 가능한 오류**
